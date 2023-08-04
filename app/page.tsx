@@ -1,29 +1,13 @@
-// import { NextPageContext } from "next";
-// import { getSession } from "next-auth/react";
-
+import getRandomMovie from "./actions/getRandomMovie";
+import Billboard from "./components/Billboard";
 import Navbar from "./components/Navbar";
 
-// export async function getServerSideProps(context: NextPageContext) {
-//   const session = await getSession(context);
-
-//   if (!session) {
-//     return {
-//       redirect: {
-//         destination: "/auth",
-//         permanent: false,
-//       },
-//     };
-//   }
-
-//   return {
-//     props: {},
-//   };
-// }
-
 const Home = async () => {
+  const randomMovie = await getRandomMovie();
   return (
     <>
       <Navbar />
+      <Billboard randomMovie={randomMovie} />
     </>
   );
 };
