@@ -1,15 +1,20 @@
 "use client";
 
 import { isEmpty } from "lodash";
-import { Movie } from "@prisma/client";
+import { Movie, User } from "@prisma/client";
 import MovieCard from "./MovieCard";
 
 interface MovieListProps {
   movies: Movie[] | null;
   title: string;
+  currentUser: User | null;
 }
 
-const MovieList: React.FC<MovieListProps> = ({ movies, title }) => {
+const MovieList: React.FC<MovieListProps> = ({
+  movies,
+  title,
+  currentUser,
+}) => {
   if (isEmpty(movies)) {
     return null;
   }
@@ -22,7 +27,7 @@ const MovieList: React.FC<MovieListProps> = ({ movies, title }) => {
         </p>
         <div className="grid grid-cols-4 gap-2">
           {movies?.map((movie) => (
-            <MovieCard key={movie.id} data={movie} />
+            <MovieCard key={movie.id} data={movie} currentUser={currentUser} />
           ))}
         </div>
       </div>

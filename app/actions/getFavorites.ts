@@ -8,7 +8,7 @@ export async function getSession() {
   return await getServerSession(authOptions);
 }
 
-export default async function getRandomMovie() {
+export default async function getFavorites() {
   try {
     const currentUser = await getCurrentUser();
 
@@ -16,15 +16,15 @@ export default async function getRandomMovie() {
       return null;
     }
 
-    const movieCount = await prismadb.movie.count();
-    const randomIndex = Math.floor(Math.random() * movieCount);
-
-    const randomMovies = await prismadb.movie.findMany({
-      take: 1,
-      skip: randomIndex,
+    const favoriteMovies = await prismadb.movie.findMany({
+      where: {
+        id: {
+          in: currentUser.favoriteIds,
+        },
+      },
     });
 
-    return randomMovies[0];
+    return favoriteMovies;
   } catch (error: any) {
     return null;
   }

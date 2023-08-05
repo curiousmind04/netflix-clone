@@ -1,13 +1,15 @@
 "use client";
 
-import { Movie } from "@prisma/client";
+import { Movie, User } from "@prisma/client";
 import { BsFillPlayFill } from "react-icons/bs";
+import FavoriteButton from "./FavoriteButton";
 
 interface MovieCardProps {
   data: Movie;
+  currentUser: User | null;
 }
 
-const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
+const MovieCard: React.FC<MovieCardProps> = ({ data, currentUser }) => {
   return (
     <div className="group bg-zinc-900 col-span relative h-[12vw]">
       <img
@@ -29,6 +31,7 @@ const MovieCard: React.FC<MovieCardProps> = ({ data }) => {
             >
               <BsFillPlayFill size={30} />
             </div>
+            <FavoriteButton movieId={data.id} currentUser={currentUser} />
           </div>
           <p className="text-green-400 font-semibold mt-4">
             New <span className="text-white">2023</span>
