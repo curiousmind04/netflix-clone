@@ -1,10 +1,14 @@
+"use client";
+
+import { User } from "@prisma/client";
 import { signOut } from "next-auth/react";
 
 interface AccountMenuProps {
   visible?: boolean;
+  currentUser: User | null;
 }
 
-const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
+const AccountMenu: React.FC<AccountMenuProps> = ({ visible, currentUser }) => {
   if (!visible) {
     return null;
   }
@@ -18,7 +22,7 @@ const AccountMenu: React.FC<AccountMenuProps> = ({ visible }) => {
             className="w-8 rounded-md"
           />
           <p className="text-white text-sm group-hover/item:underline">
-            Username
+            {currentUser?.name}
           </p>
         </div>
         <hr className="bg-gray-600 border-0 h-px my-4" />

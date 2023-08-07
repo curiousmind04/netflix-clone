@@ -3,6 +3,7 @@ import getFavorites from "./actions/getFavorites";
 import getMovies from "./actions/getMovies";
 import getRandomMovie from "./actions/getRandomMovie";
 import Billboard from "./components/Billboard";
+import InfoModal from "./components/InfoModal";
 import MovieList from "./components/MovieList";
 import Navbar from "./components/Navbar";
 
@@ -14,7 +15,8 @@ const Home = async () => {
 
   return (
     <>
-      <Navbar />
+      <InfoModal movies={movies} currentUser={currentUser} />
+      <Navbar currentUser={currentUser} />
       <Billboard randomMovie={randomMovie} />
       <div className="pb-40">
         <MovieList

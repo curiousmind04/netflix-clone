@@ -6,10 +6,15 @@ import NavbarItem from "./NavbarItem";
 
 import { BsChevronDown, BsSearch, BsBell } from "react-icons/bs";
 import AccountMenu from "./AccountMenu";
+import { User } from "@prisma/client";
 
 const TOP_OFFSET = 66;
 
-const Navbar = () => {
+interface NavbarProps {
+  currentUser: User | null;
+}
+
+const Navbar: React.FC<NavbarProps> = ({ currentUser }) => {
   const [showMobileMenu, setShowMobileMenu] = useState(false);
   const [showAccountMenu, setShowAccountMenu] = useState(false);
   const [showBackground, setShowBackground] = useState(false);
@@ -84,7 +89,7 @@ const Navbar = () => {
                 showAccountMenu ? "rotate-180" : "rotate-0"
               }`}
             />
-            <AccountMenu visible={showAccountMenu} />
+            <AccountMenu visible={showAccountMenu} currentUser={currentUser} />
           </div>
         </div>
       </div>

@@ -7,7 +7,7 @@ import { useCallback, useMemo } from "react";
 import { AiOutlinePlus, AiOutlineCheck } from "react-icons/ai";
 
 interface FavoriteButtonProps {
-  movieId: string;
+  movieId: string | undefined;
   currentUser: User | null;
 }
 
@@ -20,7 +20,7 @@ const FavoriteButton: React.FC<FavoriteButtonProps> = ({
   const isFavorite = useMemo(() => {
     const list = currentUser?.favoriteIds || [];
 
-    return list.includes(movieId);
+    return list.includes(movieId as string);
   }, [currentUser, movieId]);
 
   const toggleFavorites = useCallback(async () => {
