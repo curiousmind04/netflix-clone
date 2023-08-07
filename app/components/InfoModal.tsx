@@ -13,14 +13,12 @@ const InfoModal: React.FC<InfoModalProps> = ({ movies, currentUser }) => {
   const { isOpen, closeModal } = useInfoModal();
 
   return (
-    <>
-      <InfoModalClient
-        currentUser={currentUser}
-        movies={movies}
-        visible={isOpen}
-        onClose={closeModal}
-      />
-    </>
+    <InfoModalClient
+      currentUser={currentUser}
+      movies={movies}
+      visible={isOpen}
+      onClose={closeModal}
+    />
   );
 };
 export default InfoModal;

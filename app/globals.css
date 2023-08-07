@@ -10,6 +10,13 @@ body {
   @apply h-full;
 }
 
-html {
+/* html {
   @apply h-full;
+} */
+
+html,
+body,
+:root {
+  min-height: 100%;
+  position: relative;
 }

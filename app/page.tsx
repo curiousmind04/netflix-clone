@@ -14,7 +14,7 @@ const Home = async () => {
   const currentUser = await getCurrentUser();
 
   return (
-    <>
+    <div>
       <InfoModal movies={movies} currentUser={currentUser} />
       <Navbar currentUser={currentUser} />
       <Billboard randomMovie={randomMovie} />
@@ -30,7 +30,7 @@ const Home = async () => {
           currentUser={currentUser}
         />
       </div>
-    </>
+    </div>
   );
 };
 

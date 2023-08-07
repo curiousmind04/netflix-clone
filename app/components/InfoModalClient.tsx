@@ -42,8 +42,8 @@ const InfoModalClient: React.FC<InfoModalClientProps> = ({
   }
 
   return (
-    <div className="z-50 transition duration-300 bg-black bg-opacity-80 flex justify-center items-center overflow-x-hidden overflow-y-auto fixed inset-0">
-      <div className="relative w-auto mx-auto max-w-3xl rounded-md overflow-hidden">
+    <div className="z-50 transition duration-300 bg-black bg-opacity-80 flex overflow-x-hidden overflow-y-auto fixed top-0 right-0 w-full h-full">
+      <div className="relative w-auto mx-auto max-w-3xl rounded-md my-8 h-fit overflow-hidden">
         <div
           className={`${
             isVisible ? "scale-100" : "scale-0"
