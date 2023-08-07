@@ -58,6 +58,8 @@ const Auth = () => {
             <h2 className="text-white text-4xl mb-8 font-semibold">
               {variant === "login" ? "Sign in" : "Register"}
             </h2>
+            <p className="text-white">Demo Email: test@test.com</p>
+            <p className="text-white mb-4">Demo Password: testers</p>
             <div className="flex flex-col gap-4">
               {variant === "register" && (
                 <Input
