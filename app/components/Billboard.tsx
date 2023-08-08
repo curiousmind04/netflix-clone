@@ -27,11 +27,11 @@ const Billboard: React.FC<BillBoardProps> = ({ randomMovie }) => {
         muted
         loop
       ></video>
-      <div className="absolute top-[30%] md:top-[40%] ml-4 md:ml-16">
-        <p className="text-white text-1xl md:text-5xl h-full w-[50%] lg:text-6xl font-bold drop-shadow-xl">
+      <div className="absolute top-[40%] xxs:top-[30%] ml-4 md:ml-16">
+        <p className="text-white text-1xl sm:text-3xl md:text-5xl h-full w-[75%] xs:w-[65%] lg:text-6xl font-bold drop-shadow-xl">
           {randomMovie?.title}
         </p>
-        <p className="text-white text-[8px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-xl">
+        <p className="text-white text-[8px] sm:text-[16px] md:text-lg mt-3 md:mt-8 w-[90%] md:w-[80%] lg:w-[50%] drop-shadow-xl hidden xxs:block">
           {randomMovie?.description}
         </p>
         <div className="flex flex-row items-center mt-3 md:mt-4 gap-3">
