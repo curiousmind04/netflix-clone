@@ -42,21 +42,21 @@ const InfoModalClient: React.FC<InfoModalClientProps> = ({
   }
 
   return (
-    <div className="z-50 transition duration-300 bg-black bg-opacity-80 flex overflow-x-hidden overflow-y-auto fixed top-0 right-0 w-full h-full">
-      <div className="relative w-auto mx-auto max-w-3xl rounded-md my-8 h-fit overflow-hidden">
+    <div className="z-50 transition duration-300 bg-black bg-opacity-80 flex items-center overflow-x-hidden overflow-y-auto fixed top-0 right-0 w-full h-full">
+      <div className="relative w-[95%] mx-auto max-w-3xl rounded-md my-8 h-fit overflow-hidden">
         <div
           className={`${
             isVisible ? "scale-100" : "scale-0"
           } transform duration-300 relative flex-auto bg-zinc-900 drop-shadow-md`}
         >
-          <div className="relative h-96">
+          <div className="relative h-auto">
             <video
               src={movie?.videoUrl}
               poster={movie?.thumbnailUrl}
               autoPlay
               muted
               loop
-              className="w-full brightness-[60%] object-cover h-full"
+              className="w-full brightness-[60%] object-cover h-[12vw] min-h-[240px]"
             ></video>
             <div
               onClick={handleClose}
@@ -65,7 +65,7 @@ const InfoModalClient: React.FC<InfoModalClientProps> = ({
               <AiOutlineClose className="text-white" size={20} />
             </div>
             <div className="absolute bottom-[10%] left-10">
-              <p className="text-white text-3xl md:text-4xl h-full lg:text-5xl font-bold mb-8">
+              <p className="text-white text-lg xs:text-xl sm:text-3xl md:text-4xl h-full lg:text-5xl font-bold mb-8">
                 {movie?.title}
               </p>
               <div className="flex flex-row gap-4 items-center">
@@ -74,11 +74,15 @@ const InfoModalClient: React.FC<InfoModalClientProps> = ({
               </div>
             </div>
           </div>
-          <div className="px-12 py-8">
-            <p className="text-green-400 font-semibold text-lg">New</p>
-            <p className="text-white text-lg">{movie?.duration}</p>
-            <p className="text-white text-lg">{movie?.genre}</p>
-            <p className="text-white text-lg">{movie?.description}</p>
+          <div className="px-6 sm:px-12 py-8">
+            <p className="text-green-400 font-semibold text-sm sm:text-lg">
+              New
+            </p>
+            <p className="text-white text-sm sm:text-lg">{movie?.duration}</p>
+            <p className="text-white text-sm sm:text-lg">{movie?.genre}</p>
+            <p className="text-white text-sm sm:text-lg">
+              {movie?.description}
+            </p>
           </div>
         </div>
       </div>
