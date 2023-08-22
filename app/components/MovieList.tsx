@@ -21,7 +21,7 @@ const MovieList: React.FC<MovieListProps> = ({
 
   return (
     <div className="px-4 lg:px-12 mt-4 space-y-8">
-      <div className="max-w-[300px] xs:max-w-[500px] sm:max-w-full mx-auto">
+      <div className="max-w-[250px] xs:max-w-[500px] sm:max-w-full mx-auto">
         <p className="text-white text-md md:text-xl lg:text-2xl font-semibold mb-4">
           {title}
         </p>
